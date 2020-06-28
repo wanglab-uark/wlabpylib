@@ -1,3 +1,6 @@
-# WangLab Python Tool Kit
+# WangLab Python Toolkit
 
-Tool kit for data analysis in Wang Lab @ the University of Arkansas
+Toolkit for data analysis in Wang Lab @ the University of Arkansas. It provides a Python package `wanglabpy`.
+
+## Install
+
