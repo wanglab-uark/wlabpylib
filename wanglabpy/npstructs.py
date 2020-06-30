@@ -125,7 +125,7 @@ def find_structs(bwimage, dilation_size=3, erosion_size=4, min_struct_size=32, o
     # remove small objects of dilated edges
     smallobjremoved = skimage.morphology.remove_small_objects(dilated.astype(bool), min_size=min_struct_size)
     # fill the edges
-    filled = 1 - skimage.morphology.flood(smallobjremoved, (0,0))
+    filled = 1 - skimage.morphology.flood(smallobjremoved.astype('uint16'), (0,0))
     # erose the filled structs
     erosed = skimage.morphology.erosion(filled, skimage.morphology.square(erosion_size))
     # remove small objects of erosed structs
