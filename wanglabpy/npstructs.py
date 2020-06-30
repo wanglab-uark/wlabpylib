@@ -162,7 +162,7 @@ def annotate_structs(image, struct_labels, fig=None, vmin=None, vmax=None, add_t
         if add_text is True:
             plt.text(np.mean(contour[:,1]), np.mean(contour[:,0]), '%d'%n,
                      horizontalalignment='center', verticalalignment='center',
-                     fontsize=5, color=[1-c[0], 1-c[1], c[2]])
+                     fontsize=9, color=[1-c[0], 1-c[1], c[2]])
     return fig
 
 def get_struct_sizes(struct_labels):
