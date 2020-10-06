@@ -139,7 +139,7 @@ def find_structs(bwimage, dilation_size=3, erosion_size=4, min_struct_size=32, o
     else:
         return struct_labels
 
-def annotate_structs(image, struct_labels, fig=None, vmin=None, vmax=None, add_text=False):
+def annotate_structs(image, struct_labels, fig=None, vmin=None, vmax=None, add_text=False, colors=None):
     ''' annotate the structures of silver nanoparticles on top of the image
     PARAMETERS
         image:          (array) image from which the structures are found
@@ -157,7 +157,10 @@ def annotate_structs(image, struct_labels, fig=None, vmin=None, vmax=None, add_t
     plt.imshow(image, cmap='gray', vmin=vmin, vmax=vmax)
     contours = skimage.measure.find_contours(struct_labels, 0)
     for n, contour in enumerate(contours):
-        p = plt.plot(contour[:,1], contour[:,0])
+        if colors is None:
+            p = plt.plot(contour[:,1], contour[:,0])
+        else:
+            p = plt.plot(contour[:,1], contour[:,0], color=colors[n%len(colors)])
         c = np.array(mpl.colors.to_rgb(p[0].get_color()))
         if add_text is True:
             plt.text(np.mean(contour[:,1]), np.mean(contour[:,0]), '%d'%n,
