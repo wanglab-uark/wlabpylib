@@ -9,3 +9,6 @@ Toolkit for data analysis in Wang Lab @ the University of Arkansas. It provides 
 
 ## Usage
 `import wanglabpy as wlp`
+
+## Notes
+Could be broken on some of the dependencies (e.g., `sklearn`, `skimage`)
